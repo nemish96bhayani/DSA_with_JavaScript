@@ -147,3 +147,4 @@ const playerCount = (data) => {
 
 const countPlayer = playerCount(data);
 console.log(countPlayer);
+  
