@@ -17,13 +17,13 @@ console.log(factorial(8));
 
 //sum of  a array: Given an array, return sum of it's all elements
 
-// function sumOfArray(arr) {
-//   if (arr.length === 0) {
-//     return 0;
-//   }
-//   const lastElement = arr.pop();
-//   return lastElement + sumOfArray(arr);
-// }
+function sumOfArray(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const lastElement = arr.pop();
+  return lastElement + sumOfArray(arr);
+}
 
 function sumOfArray(arr, n) {
   if (n === 0) {
@@ -53,4 +53,3 @@ function fibbo(n) {
 }
 
 console.log(fibbo(10));
-
