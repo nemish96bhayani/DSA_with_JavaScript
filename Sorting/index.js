@@ -86,8 +86,7 @@ const mergeSort = (arr) => {
   let mid = Math.floor(arr.length / 2);
   let left = mergeSort(arr.slice(0, mid));
   let right = mergeSort(arr.slice(mid));
-
-  merge(left, right);
+  return merge(left, right);
 };
 
 const merge = (left, right) => {
@@ -103,4 +102,45 @@ const merge = (left, right) => {
       rightIndex++;
     }
   }
+  while (leftIndex < left.length) {
+    result.push(left[leftIndex]);
+    leftIndex++;
+  }
+  while (rightIndex < right.length) {
+    result.push(right[rightIndex]);
+    rightIndex++;
+  }
+  return result;
 };
+
+const arr1 = [29, 10, 8, 7, 12, 16];
+console.log(mergeSort(arr1));
+console.log(mergeSortInPlace(arr1, 0, arr1.length - 1));
+console.log(arr1);
+
+//time complexity of merge sort is O(nlogn) in all cases
+
+// Quick sort in Javascript:
+
+const quickSort = (arr) => {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let pivotIndex = Math.floor(Math.random() * arr.length);
+  let left = [],
+    right = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i === pivotIndex) {
+      continue;
+    }
+    if (arr[i] < arr[pivotIndex]) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), arr[pivotIndex], ...quickSort(right)];
+};
+const arr2 = [29, 10, 8, 7, 12, 16];
+console.log(quickSort(arr2));
+//time complexity of quick sort is O(nlogn) in best case and O(n^2) in worst case
